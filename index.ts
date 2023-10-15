@@ -2,6 +2,7 @@
 
 import { $ } from "zx";
 import { exec } from "child_process";
+import process from "process";
 
 import { writeFile } from "./lib";
 
@@ -43,10 +44,46 @@ const cSpellContent = {
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
-// TODO: Support other file types
-// Run cspell on Markdown files to get unknown words
+// Get file types from command line arguments or default to ['md', 'ts', 'json']
+const fileTypes = process.argv.slice(2).length > 0 ? process.argv.slice(2) : ['md', 'ts', 'json'];
+  isInstalled = true;
+} catch (error) {
+  console.error(
+    "cSpell is not installed. Please install with your package manager.",
+  );
+  // Print hint to console with cmd: npm install -g cspell@latest
+  console.info("Hint: npm install -g cspell@latest");
+}
+
+// Extract project name from current directory
+const dirname = await $`pwd`;
+const projectName = String(dirname.stdout.split("/").slice(-1)[0]).trim();
+
+// Create cspell.json configuration file
+const cSpellContent = {
+  $schema:
+    "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  version: "0.2",
+  language: "en",
+  globRoot: ".",
+  dictionaryDefinitions: [
+    {
+      name: projectName,
+      path: `./${projectName}.txt`,
+      addWords: true,
+    },
+  ],
+  dictionaries: [projectName],
+  ignorePaths: ["node_modules", `/${projectName}.txt`],
+};
+
+// Create a project-name.txt file with the project name
+writeFile(`./${projectName}.txt`, "");
+writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
+
+// Run cspell on files of the specified types to get unknown words
 const cmd = `${isInstalled ? "" : "npx "
-  }cspell --words-only --unique --no-progress --show-context "**/**/*.md" "**/**/*.ts" "**/**/*.json"`;
+  }cspell --words-only --unique --no-progress --show-context ${fileTypes.map(fileType => `"**/**/*.${fileType}"`).join(' ')}`;
 const unknownWords = await new Promise<string[]>((resolve) => {
   exec(cmd, (error: any, stdout: string) => {
     if (error) {
