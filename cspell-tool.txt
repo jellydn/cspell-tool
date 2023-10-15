@@ -1,4 +1,5 @@
 outdir
+skypack
 Huynh
 productsway
 jellydn

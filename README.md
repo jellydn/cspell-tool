@@ -18,7 +18,7 @@
 Run the following command in your project's root directory to check for spelling issues:
 
 ```sh
-npx cspell-tool
+npx cspell-tool@latest
 ```
 
 ## Installation
