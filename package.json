@@ -30,10 +30,10 @@
     "dev": "bun run --watch index.ts"
   },
   "dependencies": {
-    "zx": "^7.2.3"
+    "zx": "7.2.3"
   },
   "devDependencies": {
-    "@skypack/package-check": "^0.2.2",
+    "@skypack/package-check": "0.2.2",
     "bun-types": "latest"
   },
   "peerDependencies": {
