@@ -45,13 +45,15 @@ writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
 // TODO: Support other file types
 // Run cspell on Markdown files to get unknown words
-const cmd = `${isInstalled ? "" : "npx "
-  }cspell --words-only --unique --no-progress --show-context "**/**/*.md" "**/**/*.ts" "**/**/*.json"`;
+const cmd = `${
+  isInstalled ? "" : "npx "
+}cspell --words-only --unique --no-progress --show-context "**/**/*.md" "**/**/*.ts" "**/**/*.json"`;
 const unknownWords = await new Promise<string[]>((resolve) => {
   exec(cmd, (error: any, stdout: string) => {
     if (error) {
       console.error(`Error running cspell: ${error}`);
     }
+
     const words = stdout ? stdout.split("\n").filter((word: any) => word) : [];
     resolve(words);
   });
