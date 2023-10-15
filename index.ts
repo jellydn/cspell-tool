@@ -2,19 +2,21 @@
 
 import { $ } from "zx";
 import { exec } from "child_process";
-
 import { writeFile } from "./lib";
+import { consola } from "./utils";
 
-let isInstalled = false;
-try {
-  await $`cspell --version`;
-  isInstalled = true;
-} catch (error) {
-  console.error(
-    "cSpell is not installed. Please install with your package manager.",
-  );
-  // Print hint to console with cmd: npm install -g cspell@latest
-  console.info("Hint: npm install -g cspell@latest");
+async function main() {
+  let isInstalled = false;
+  try {
+    await $`cspell --version`;
+    isInstalled = true;
+  } catch (error) {
+    console.error(
+      "cSpell is not installed. Please install with your package manager.",
+    );
+    // Print hint to console with cmd: npm install -g cspell@latest
+    console.info("Hint: npm install -g cspell@latest");
+  }
 }
 
 // Extract project name from current directory
@@ -41,27 +43,60 @@ const cSpellContent = {
 
 // Create a project-name.txt file with the project name
 writeFile(`./${projectName}.txt`, "");
-writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
-
-// TODO: Support other file types
-// Run cspell on Markdown files to get unknown words
-const cmd = `${
-  isInstalled ? "" : "npx "
-}cspell --words-only --unique --no-progress --show-context "**/**/*.md" "**/**/*.ts" "**/**/*.json"`;
-const unknownWords = await new Promise<string[]>((resolve) => {
-  exec(cmd, (error: any, stdout: string) => {
-    if (error) {
-      console.error(`Error running cspell: ${error}`);
-    }
-
-    const words = stdout ? stdout.split("\n").filter((word: any) => word) : [];
-    resolve(words);
+  const projectName = await consola.prompt("What is your project name?", {
+    placeholder: "Not sure",
+    initial: "java",
   });
-});
 
-console.log(`Found ${unknownWords.length} unknown words.`);
+  const confirmed = await consola.prompt("Do you want to continue?", {
+    type: "confirm",
+  });
 
-// Save unknown words in project-name.txt
-writeFile(`./${projectName}.txt`, unknownWords.join("\n"));
-console.log("cSpell setup completed.");
-process.exit(0);
+  if (!confirmed) {
+    process.exit(0);
+  }
+
+  const projectType = await consola.prompt("Pick a project type.", {
+    type: "select",
+    options: [
+      "md",
+      "ts",
+      "json",
+    ],
+  });
+
+  const tools = await consola.prompt("Select additional tools.", {
+    type: "multiselect",
+    required: false,
+    options: [
+      { value: "eslint", label: "ESLint", hint: "recommended" },
+      { value: "prettier", label: "Prettier" },
+      { value: "gh-action", label: "GitHub Action" },
+    ],
+  });
+
+  consola.start("Creating project...");
+
+  const cmd = `${
+    isInstalled ? "" : "npx "
+  }cspell --words-only --unique --no-progress --show-context "**/**/*.${projectType}"`;
+  const unknownWords = await new Promise<string[]>((resolve) => {
+    exec(cmd, (error: any, stdout: string) => {
+      if (error) {
+        console.error(`Error running cspell: ${error}`);
+      }
+
+      const words = stdout ? stdout.split("\n").filter((word: any) => word) : [];
+      resolve(words);
+    });
+  });
+
+  console.log(`Found ${unknownWords.length} unknown words.`);
+
+  // Save unknown words in project-name.txt
+  writeFile(`./${projectName}.txt`, unknownWords.join("\n"));
+  console.log("cSpell setup completed.");
+  process.exit(0);
+}
+
+main();
