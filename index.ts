@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { $ } from "zx";
 import { exec } from "child_process";
 
@@ -9,7 +11,7 @@ try {
   isInstalled = true;
 } catch (error) {
   console.error(
-    "cSpell is not installed. Please install with your package manager."
+    "cSpell is not installed. Please install with your package manager.",
   );
   // Print hint to console with cmd: npm install -g cspell@latest
   console.info("Hint: npm install -g cspell@latest");
@@ -42,9 +44,8 @@ writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
 // Run cspell on Markdown files to get unknown words
-const cmd =
-  (isInstalled ? "" : "npx ") +
-  'cspell --words-only --unique --no-progress --show-context "**/*.md" "**/*.ts" "**/*.json"';
+const cmd = `${isInstalled ? "" : "npx "
+  }cspell --words-only --unique --no-progress --show-context "**/*.md" "**/*.ts" "**/*.json"`;
 const unknownWords = await new Promise<string[]>((resolve) => {
   exec(cmd, (error: any, stdout: string) => {
     if (error) {
