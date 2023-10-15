@@ -3,7 +3,7 @@
 import { $ } from "zx";
 import { exec } from "child_process";
 import { writeFile } from "./lib";
-import { consola } from "./utils";
+import consola from 'consola';
 
 async function main() {
   let isInstalled = false;
