@@ -1,0 +1,22 @@
+{
+  "name": "cspell-tool",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch index.ts",
+    "clean": "rm -rf cli && echo 'Done.'",
+    "build": "bun build index.ts --outdir ./cli --target node --format esm --minify --external zx"
+  },
+  "bin": {
+    "cspell-tool": "./cli/index.js"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "zx": "^7.2.3"
+  }
+}
