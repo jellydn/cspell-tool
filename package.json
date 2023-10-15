@@ -1,5 +1,15 @@
 {
   "name": "cspell-tool",
+  "description": "A command line tool for spell checking.",
+  "version": "0.0.1",
+  "keywords": [
+    "cspell",
+    "spell",
+    "spell-check"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "module": "index.ts",
   "type": "module",
   "scripts": {
