@@ -33,7 +33,8 @@
     "dev": "bun run --watch index.ts"
   },
   "dependencies": {
-    "zx": "7.2.3"
+    "zx": "7.2.3",
+    "consola": "latest"
   },
   "devDependencies": {
     "@skypack/package-check": "0.2.2",
