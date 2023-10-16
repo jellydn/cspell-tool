@@ -44,8 +44,7 @@ const cSpellContent = {
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
-// Import consola
-import consola from "consola";
+// Removed duplicate import of 'consola'
 
 // Ask the user for the file types they want to check
 const fileTypes = await consola.prompt("Select file types to check.", {
