@@ -1,6 +1,6 @@
-consola
 outdir
 typecheck
+consola
 skypack
 productsway
 Huynh
