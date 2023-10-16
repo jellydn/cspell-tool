@@ -1,8 +1,12 @@
 {
 	"name": "cspell-tool",
-	"version": "0.2.0-6",
+	"version": "0.2.0-7",
 	"description": "A command line tool for spell checking.",
-	"keywords": ["cspell", "spell", "spell-check"],
+	"keywords": [
+		"cspell",
+		"spell",
+		"spell-check"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/jellydn/cspell-tool"
@@ -17,7 +21,10 @@
 	"bin": {
 		"cspell-tool": "./dist/index.js"
 	},
-	"files": ["src", "dist/index.js"],
+	"files": [
+		"src",
+		"dist/index.js"
+	],
 	"scripts": {
 		"build": "bun build src/index.ts --outdir ./dist --target node --format esm --minify --external zx",
 		"clean": "rm -rf cli && echo 'Done.'",
