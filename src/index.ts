@@ -44,11 +44,23 @@ const cSpellContent = {
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
-// TODO: Support other file types
-const fileTypes = ["md", "ts", "json", "lua"];
+// Import consola
+import consola from "consola";
+
+// Ask the user for the file types they want to check
+const fileTypes = await consola.prompt("Select file types to check.", {
+  type: "multiselect",
+  options: [
+    { value: "md", label: "Markdown" },
+    { value: "ts", label: "TypeScript" },
+    { value: "json", label: "JSON" },
+    { value: "lua", label: "Lua" },
+  ],
+});
+
 const cspellCmd = isInstalled ? "cspell" : "npx cspell";
 
-// Run cspell on Markdown files to get unknown words
+// Run cspell on the selected file types to get unknown words
 const cmd = `${cspellCmd} --words-only --unique --no-progress --show-context ${fileTypes
   .map((fileType) => `"**/**/*.${fileType}"`)
   .join(" ")}`;
