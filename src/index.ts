@@ -65,6 +65,7 @@ const cmd = `${cspellCmd} --words-only --unique --no-progress --show-context ${f
   .map((fileType) => `"**/**/*.${fileType}"`)
   .join(" ")}`;
 const unknownWords = await new Promise<string[]>((resolve) => {
+  consola.start("Running cSpell...");
   exec(cmd, (error: any, stdout: string) => {
     if (error) {
       consola.error(error);
