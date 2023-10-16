@@ -1,5 +1,8 @@
+consola
 outdir
+typecheck
 skypack
-Huynh
 productsway
+Huynh
 jellydn
+automerge

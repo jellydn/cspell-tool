@@ -14,29 +14,31 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./cli": "./cli/index.js"
+    ".": "./dist/index.js"
   },
   "module": "index.ts",
   "types": "./index.ts",
   "bin": {
-    "cspell-tool": "./cli/index.js"
+    "cspell-tool": "./dist/index.js"
   },
   "files": [
-    "./cli/index.js"
+    "./dist/index.js"
   ],
   "scripts": {
-    "build": "bun build index.ts --outdir ./cli --target node --format esm --minify --external zx",
+    "build": "bun build index.ts --outdir ./dist --target node --format esm --minify --external zx",
     "clean": "rm -rf cli && echo 'Done.'",
-    "lint": "eslint --ext .ts .",
-    "typecheck": "tsc --noEmit",
+    "dev": "bun run --watch ./index.ts",
     "format": "prettier --write .",
-    "dev": "bun run --watch index.ts"
+    "lint": "eslint --ext .ts .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "consola": "3.2.3",
     "zx": "7.2.3"
   },
   "devDependencies": {
     "@skypack/package-check": "0.2.2",
+    "@types/consola": "2.2.5",
     "@typescript-eslint/eslint-plugin": "6.7.5",
     "@typescript-eslint/parser": "6.7.5",
     "bun-types": "latest",
@@ -45,7 +47,7 @@
     "prettier": "3.0.3"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "5.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
