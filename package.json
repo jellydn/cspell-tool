@@ -1,6 +1,6 @@
 {
   "name": "cspell-tool",
-  "version": "0.2.0-0",
+  "version": "0.2.0-1",
   "description": "A command line tool for spell checking.",
   "keywords": [
     "cspell",
@@ -52,5 +52,12 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "np": {
+    "yarn": false,
+    "contents": "dist"
   }
 }
