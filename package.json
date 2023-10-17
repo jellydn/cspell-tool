@@ -1,57 +1,58 @@
 {
-	"name": "cspell-tool",
-	"version": "0.3.0-0",
-	"description": "A command line tool for spell checking.",
-	"keywords": [
-		"cspell",
-		"spell",
-		"spell-check"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/jellydn/cspell-tool"
-	},
-	"license": "MIT",
-	"type": "module",
-	"exports": {
-		".": "./dist/index.js"
-	},
-	"module": "src/index.ts",
-	"types": "src/index.ts",
-	"bin": {
-		"cspell-tool": "./dist/index.js"
-	},
-	"files": [
-		"src",
-		"dist/index.js"
-	],
-	"scripts": {
-		"build": "bun build src/index.ts --outdir ./dist --target node --format esm --minify --external zx",
-		"clean": "rm -rf cli && echo 'Done.'",
-		"dev": "bun run --watch ./src/index.ts",
-		"format": "prettier --write .",
-		"lint": "eslint --ext .ts .",
-		"typecheck": "tsc --noEmit"
-	},
-	"dependencies": {
-		"consola": "3.2.3",
-		"zx": "7.2.3"
-	},
-	"devDependencies": {
-		"@skypack/package-check": "0.2.2",
-		"@types/consola": "2.2.5",
-		"@typescript-eslint/eslint-plugin": "6.8.0",
-		"@typescript-eslint/parser": "6.8.0",
-		"bun-types": "latest",
-		"eslint": "8.51.0",
-		"eslint-config-productsway": "1.3.0",
-		"prettier": "3.0.3",
-		"typescript": "5.2.2"
-	},
-	"engines": {
-		"node": ">=18.0.0"
-	},
-	"np": {
-		"yarn": false
-	}
+  "name": "cspell-tool",
+  "version": "0.3.0-1",
+  "description": "A command line tool for spell checking.",
+  "keywords": [
+    "cspell",
+    "spell",
+    "spell-check"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jellydn/cspell-tool"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "bin": {
+    "cspell-tool": "./dist/index.js"
+  },
+  "files": [
+    "src",
+    "dist/index.js"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir ./dist --target node --format esm --minify --external zx",
+    "clean": "rm -rf cli && echo 'Done.'",
+    "dev": "bun run --watch ./src/index.ts",
+    "format": "prettier --write .",
+    "lint": "eslint --ext .ts .",
+    "np": "bun run build && bunx np@latest --no-tests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "consola": "3.2.3",
+    "zx": "7.2.3"
+  },
+  "devDependencies": {
+    "@skypack/package-check": "0.2.2",
+    "@types/consola": "2.2.5",
+    "@typescript-eslint/eslint-plugin": "6.8.0",
+    "@typescript-eslint/parser": "6.8.0",
+    "bun-types": "latest",
+    "eslint": "8.51.0",
+    "eslint-config-productsway": "1.3.0",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "np": {
+    "yarn": false
+  }
 }
