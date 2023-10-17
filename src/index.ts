@@ -47,7 +47,6 @@ const cSpellContent = {
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
-
 // Ask the user if they want to use the default file types
 const useDefaultFileTypes = await consola.prompt("Use default file types (md, ts, json, lua)?", {
   type: "confirm",
