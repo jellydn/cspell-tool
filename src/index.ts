@@ -66,6 +66,11 @@ if (useDefaultFileTypes) {
       { value: "ts", label: "TypeScript" },
       { value: "json", label: "JSON" },
       { value: "lua", label: "Lua" },
+      { value: "py", label: "Python" },
+      { value: "go", label: "Go" },
+      { value: "rs", label: "Rust" },
+      { value: "java", label: "Java" },
+      { value: "js", label: "JavaScript" },
     ],
   });
 }
