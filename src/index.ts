@@ -61,7 +61,7 @@ const cspellCmd = isInstalled ? "cspell" : "npx cspell";
 
 // Run cspell on the selected file types to get unknown words
 const cmd = `${cspellCmd} --words-only --unique --no-progress --show-context ${fileTypes
-  .map((fileType) => `"**/**/*.${fileType}"`)
+  .map((fileType) => `"**/**/*.${fileType.value}"`)
   .join(" ")}`;
 const unknownWords = await new Promise<string[]>((resolve) => {
   consola.start("Running cSpell...");
