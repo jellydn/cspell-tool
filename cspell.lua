@@ -29,7 +29,6 @@ return {
 			local b = none_ls.builtins
 
 			local sources = {
-
 				-- spell check
 				b.diagnostics.codespell,
 				b.diagnostics.misspell,
