@@ -45,16 +45,30 @@ writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
 
-// Ask the user for the file types they want to check
-const fileTypes = await consola.prompt("Select file types to check.", {
-  type: "multiselect",
+// Ask the user if they want to use the default file types
+const useDefaultFileTypes = await consola.prompt("Use default file types (md, ts, json, lua)?", {
+  type: "select",
   options: [
-    { value: "md", label: "Markdown" },
-    { value: "ts", label: "TypeScript" },
-    { value: "json", label: "JSON" },
-    { value: "lua", label: "Lua" },
+    { value: true, label: "Yes" },
+    { value: false, label: "No" },
   ],
 });
+
+let fileTypes;
+if (useDefaultFileTypes) {
+  fileTypes = ["md", "ts", "json", "lua"];
+} else {
+  // Ask the user for the file types they want to check
+  fileTypes = await consola.prompt("Select file types to check.", {
+    type: "multiselect",
+    options: [
+      { value: "md", label: "Markdown" },
+      { value: "ts", label: "TypeScript" },
+      { value: "json", label: "JSON" },
+      { value: "lua", label: "Lua" },
+    ],
+  });
+}
 
 const cspellCmd = isInstalled ? "cspell" : "npx cspell";
 
