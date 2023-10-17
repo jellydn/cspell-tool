@@ -81,17 +81,7 @@ if (useDefaultFileTypes) {
 }
     type: "multiselect",
     options: [
-      { value: "md", label: "Markdown" },
-      { value: "ts", label: "TypeScript" },
-      { value: "tsx", label: "TypeScript React" },
-      { value: "json", label: "JSON" },
-      { value: "lua", label: "Lua" },
-      { value: "py", label: "Python" },
-      { value: "go", label: "Go" },
-      { value: "rs", label: "Rust" },
-      { value: "java", label: "Java" },
-      { value: "js", label: "JavaScript" },
-      { value: "jsx", label: "JavaScript React" },
+      
     ],
   }) as unknown as string[];
 }
