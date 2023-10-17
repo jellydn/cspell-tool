@@ -51,6 +51,15 @@ writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 // Define the file types as a constant array
 const fileTypes = ["md", "ts", "tsx", "json", "lua"];
 
+// Create a mapping between file type extensions and their descriptive names
+const fileTypeDescriptions = {
+  "md": "Markdown",
+  "ts": "TypeScript",
+  "tsx": "TypeScript React",
+  "json": "JSON",
+  "lua": "Lua",
+};
+
 const useDefaultFileTypes = await consola.prompt(`Use default file types (${fileTypes.join(", ")})?`, {
   type: "confirm",
   options: [
@@ -64,9 +73,10 @@ if (useDefaultFileTypes) {
   selectedFileTypes = fileTypes;
 } else {
   // Ask the user for the file types they want to check
+  // Use the mapping to generate the options for the multiselect prompt
   selectedFileTypes = await consola.prompt("Select file types to check.", {
     type: "multiselect",
-    options: fileTypes.map(fileType => ({ value: fileType, label: fileType.toUpperCase() })),
+    options: fileTypes.map(fileType => ({ value: fileType, label: fileTypeDescriptions[fileType] })),
   }) as unknown as string[];
 }
     type: "multiselect",
