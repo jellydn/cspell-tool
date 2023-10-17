@@ -1,22 +1,21 @@
+-- Define the tools to be installed and the key mapping
+local installed_tools = {"codespell", "misspell", "cspell"}
+local key_mapping = "<leader>cn"
+
 -- Example config with lazyvim
 return {
 	-- Auto install those tools with mason
 	{
 		"williamboman/mason.nvim",
 		opts = {
-			ensure_installed = {
-				-- code spell
-				"codespell",
-				"misspell",
-				"cspell",
-			},
+			ensure_installed = installed_tools,
 		},
 	},
 	-- Set up null-ls to check spelling
 	{
 		"nvimtools/none-ls.nvim",
 		keys = {
-			{ "<leader>cn", "<cmd>NullLsInfo<cr>", desc = "NullLs Info" },
+			{ key_mapping, "<cmd>NullLsInfo<cr>", desc = "NullLs Info" },
 		},
 		dependencies = { "mason.nvim", "davidmh/cspell.nvim" },
 		event = { "BufReadPre", "BufNewFile" },
@@ -42,9 +41,11 @@ return {
 				}),
 				cspell.code_actions,
 			}
+			-- Define the debounce value
+			local debounce_value = 200
 			return {
 				sources = sources,
-				debounce = 200,
+				debounce = debounce_value,
 				debug = true,
 			}
 		end,
