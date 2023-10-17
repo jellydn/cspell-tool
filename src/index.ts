@@ -18,7 +18,7 @@ try {
   consola.info("Hint: npm install -g cspell@latest");
 }
 
-// Ask the user for the project name
+// Ask the user for the project name using consola.prompt()
 const projectName = await consola.prompt("Enter project name", {
   type: 'text',
   placeholder: 'Your project name',
