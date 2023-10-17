@@ -48,7 +48,10 @@ writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
 // Ask the user if they want to use the default file types
-const useDefaultFileTypes = await consola.prompt("Use default file types (md, ts, tsx, json, lua)?", {
+// Define the file types as a constant array
+const fileTypes = ["md", "ts", "tsx", "json", "lua"];
+
+const useDefaultFileTypes = await consola.prompt(`Use default file types (${fileTypes.join(", ")})?`, {
   type: "confirm",
   options: [
     { value: true, label: "Yes" },
@@ -56,13 +59,16 @@ const useDefaultFileTypes = await consola.prompt("Use default file types (md, ts
   ],
 });
 
-
-let fileTypes: string[];
+let selectedFileTypes: string[];
 if (useDefaultFileTypes) {
-  fileTypes = ["md", "ts", "tsx", "json", "lua"];
+  selectedFileTypes = fileTypes;
 } else {
   // Ask the user for the file types they want to check
-  fileTypes = await consola.prompt("Select file types to check.", {
+  selectedFileTypes = await consola.prompt("Select file types to check.", {
+    type: "multiselect",
+    options: fileTypes.map(fileType => ({ value: fileType, label: fileType.toUpperCase() })),
+  }) as unknown as string[];
+}
     type: "multiselect",
     options: [
       { value: "md", label: "Markdown" },
