@@ -5,13 +5,16 @@
 </p>
 
 ## Table of Contents
-
+<!--toc:start-->
 - [Usage](#usage)
 - [Installation](#installation)
 - [Features](#features)
+- [Contributing](#contributing)
 - [License](#license)
-- [Author](#author)
 - [Acknowledgements](#acknowledgements)
+- [Author](#author)
+- [Show Your Support](#show-your-support)
+<!--toc:end-->
 
 ## Usage
 
@@ -55,6 +58,11 @@ Contributions are what make the open-source community such an amazing place to l
 
 Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
 
+## Acknowledgements
+
+- [zx](https://github.com/google/zx) for making scripting easier.
+- [cspell](https://github.com/streetsidesoftware/cspell) for being the backbone of this tool.
+
 ## Author
 
 👤 **Huynh Duc Dung**
@@ -63,11 +71,10 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 - Twitter: [@jellydn](https://twitter.com/jellydn)
 - GitHub: [@jellydn](https://github.com/jellydn)
 
-## Acknowledgements
-
-- [zx](https://github.com/google/zx) for making scripting easier.
-- [cspell](https://github.com/streetsidesoftware/cspell) for being the backbone of this tool.
-
 ## Show Your Support
 
-Give this project a ⭐️ if it helped you!
+If this guide has been helpful, please give it a ⭐️.
+
+[![kofi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/dunghd)
+[![paypal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/dunghd)
+[![buymeacoffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/dunghd)
