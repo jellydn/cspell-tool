@@ -20,20 +20,20 @@ return {
 		},
 		dependencies = { "mason.nvim", "davidmh/cspell.nvim" },
 		event = { "BufReadPre", "BufNewFile" },
-		opts = function()
+		getSpellCheckOptions = function()
 			local cspell = require("cspell")
-			local ok, none_ls = pcall(require, "null-ls")
-			if not ok then
+			local isNullLsLoaded, null_ls = pcall(require, "null-ls")
+			if not isNullLsLoaded then
 				return
 			end
-
-			local b = none_ls.builtins
-
-			local sources = {
-
+		
+			local nullLsBuiltins = null_ls.builtins
+		
+			local spellCheckSources = {
+		
 				-- spell check
-				b.diagnostics.codespell,
-				b.diagnostics.misspell,
+				nullLsBuiltins.diagnostics.codespell,
+				nullLsBuiltins.diagnostics.misspell,
 				-- cspell
 				cspell.diagnostics.with({
 					-- Set the severity to HINT for unknown words
@@ -44,7 +44,7 @@ return {
 				cspell.code_actions,
 			}
 			return {
-				sources = sources,
+				sources = spellCheckSources,
 				debounce = 200,
 				debug = true,
 			}
