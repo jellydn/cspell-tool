@@ -9,6 +9,7 @@
 - [Usage](#usage)
 - [Installation](#installation)
 - [Features](#features)
+  - [Usage with Neovim and null-ls](#usage-with-neovim-and-null-ls)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -40,9 +41,60 @@ npm install -g cspell-tool
 
 ## Features
 
-- Supports multiple file formats like `.md`, `.ts`, and `.json`.
+- Supports multiple file formats like `.md`, `.ts`, `.lua` and `.json`.
 - Easily customizable via `cspell.json`.
 - Extends your project-specific dictionary.
+
+### Usage with Neovim and null-ls
+
+This assumes you have [`mason.nvim`](https://github.com/williamboman/mason.nvim) and [`null-ls.nvim`](https://github.com/nvimtools/none-ls.nvim) installed.
+
+1. **Installing cSpell with Mason**
+
+   Make sure your `mason.nvim` configuration in your `init.lua` includes `cspell` under `ensure_installed`:
+
+   ```lua
+   ensure_installed = {
+     -- code spell
+     "codespell",
+     "misspell",
+     "cspell",
+   },
+   ```
+
+2. **Setting Up null-ls**
+
+   Add the following code to your `init.lua` to set up `null-ls` for spell checking:
+
+   ```lua
+   local cspell = require("cspell")
+   local ok, none_ls = pcall(require, "null-ls")
+   if not ok then
+     return
+   end
+
+   local b = none_ls.builtins
+   local sources = {
+     -- spell check
+     b.diagnostics.codespell,
+     b.diagnostics.misspell,
+     -- cspell
+     cspell.diagnostics.with({
+       diagnostics_postprocess = function(diagnostic)
+         diagnostic.severity = vim.diagnostic.severity["HINT"]
+       end,
+     }),
+     cspell.code_actions,
+   }
+
+   return {
+     sources = sources,
+     debounce = 200,
+     debug = true,
+   }
+   ```
+
+More details can be found in [`cspell example config with lazyvim`](./cspell.lua).
 
 ## Contributing
 
