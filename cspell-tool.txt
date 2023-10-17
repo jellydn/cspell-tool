@@ -1,12 +1,13 @@
+codespell
 lazyvim
 williamboman
 nvim
-codespell
 nvimtools
 davidmh
 builtins
 postprocess
 outdir
+bunx
 typecheck
 consola
 skypack

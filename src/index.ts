@@ -40,7 +40,7 @@ const cSpellContent = {
     },
   ],
   dictionaries: [projectName],
-  ignorePaths: ["node_modules", `/${projectName}.txt`],
+  ignorePaths: ["node_modules", "dist", "build", `/${projectName}.txt`],
 };
 
 // Create a project-name.txt file with the project name
