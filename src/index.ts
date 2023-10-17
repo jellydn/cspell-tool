@@ -20,9 +20,9 @@ try {
 
 // Ask the user for the project name
 const projectName = await consola.prompt("Enter project name", {
-  type: 'text',
-  placeholder: 'Your project name',
-  initial: 'cspell-tool',
+    type: 'text',
+    placeholder: 'Your project name',
+    initial: 'cspell-tool',
 });
 
 // Create cspell.json configuration file
