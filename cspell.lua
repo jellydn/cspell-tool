@@ -45,11 +45,11 @@ return {
 			-- Define the debounce value
 			local debounce_value = 200
 			
-						return {
-							sources = sources,
-							debounce = debounce_value,
-							debug = true,
-						}
+			return {
+				sources = sources,
+				debounce = debounce_value,
+				debug = true,
+			}
 		end,
 	},
 }
