@@ -18,9 +18,12 @@ try {
   consola.info("Hint: npm install -g cspell@latest");
 }
 
-// Extract project name from current directory
-const dirname = await $`pwd`;
-const projectName = String(dirname.stdout.split("/").slice(-1)[0]).trim();
+// Ask the user for the project name
+const projectName = await consola.prompt("Enter project name", {
+  type: 'text',
+  placeholder: 'Your project name',
+  initial: 'cspell-tool',
+});
 
 // Create cspell.json configuration file
 const cSpellContent = {
@@ -44,11 +47,40 @@ const cSpellContent = {
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
-// TODO: Support other file types
-const fileTypes = ["md", "ts", "json", "lua"];
-const cspellCmd = isInstalled ? "cspell" : "npx cspell";
 
-// Run cspell on Markdown files to get unknown words
+// Ask the user if they want to use the default file types
+const useDefaultFileTypes = await consola.prompt("Use default file types (md, ts, json, lua)?", {
+  type: "confirm",
+  options: [
+    { value: true, label: "Yes" },
+    { value: false, label: "No" },
+  ],
+});
+
+
+let fileTypes: string[];
+if (useDefaultFileTypes) {
+  fileTypes = ["md", "ts", "json", "lua"];
+} else {
+  // Ask the user for the file types they want to check
+  fileTypes = await consola.prompt("Select file types to check.", {
+    type: "multiselect",
+    options: [
+      { value: "md", label: "Markdown" },
+      { value: "ts", label: "TypeScript" },
+      { value: "json", label: "JSON" },
+      { value: "lua", label: "Lua" },
+      { value: "py", label: "Python" },
+      { value: "go", label: "Go" },
+      { value: "rs", label: "Rust" },
+      { value: "java", label: "Java" },
+      { value: "js", label: "JavaScript" },
+    ],
+  }) as unknown as string[];
+}
+
+const cspellCmd = isInstalled ? "cspell" : "npx cspell";
+// Run cspell on the selected file types to get unknown words
 const cmd = `${cspellCmd} --words-only --unique --no-progress --show-context ${fileTypes
   .map((fileType) => `"**/**/*.${fileType}"`)
   .join(" ")}`;
@@ -68,5 +100,5 @@ consola.log(`Found ${unknownWords.length} unknown words.`);
 
 // Save unknown words in project-name.txt
 writeFile(`./${projectName}.txt`, unknownWords.join("\n"));
-consola.success("cSpell setup completed.");
+consola.success("cSpell setup completed. Please review the unknown words.")
 process.exit(0);
