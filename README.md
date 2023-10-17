@@ -25,6 +25,8 @@ Run the following command in your project's root directory to check for spelling
 npx cspell-tool@latest
 ```
 
+[![Demo](https://i.gyazo.com/a8c681a83b65620f2277b2c9a16a46ef.gif)](https://gyazo.com/a8c681a83b65620f2277b2c9a16a46ef)
+
 ## Installation
 
 Install as a development dependency in your project:
@@ -95,6 +97,8 @@ This assumes you have [`mason.nvim`](https://github.com/williamboman/mason.nvim)
    ```
 
 More details can be found in [`cspell example config with lazyvim`](./cspell.lua).
+
+[![Neovim Demo](https://i.gyazo.com/99f48ffbd1d3577d45e3474a98801120.gif)](https://gyazo.com/99f48ffbd1d3577d45e3474a98801120)
 
 ## Contributing
 
