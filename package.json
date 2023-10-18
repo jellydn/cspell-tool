@@ -31,7 +31,7 @@
     "dev": "bun run --watch ./src/index.ts",
     "format": "prettier --write .",
     "lint": "eslint --ext .ts .",
-    "np": "bun run build && bunx np@latest --no-tests",
+    "np": "bun install && bun run build && bunx np@latest --no-tests",
     "typecheck": "tsc --noEmit"
   },
   "simple-git-hooks": {
