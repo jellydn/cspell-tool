@@ -50,7 +50,7 @@ npm install -g cspell-tool
 
 ## Features
 
-- Supports multiple file formats like `.md`, `.ts`, `.lua` and `.json`.
+- Supports multiple file formats like `.md`, `.ts`, `.lua` `.json` and `.yaml`.
 - Easily customizable via `cspell.json`.
 - Extends your project-specific dictionary.
 

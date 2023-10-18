@@ -11,11 +11,16 @@ bunx
 typecheck
 consola
 skypack
+trivago
 productsway
+jellydn
 Neovim
 pcall
 Huynh
-jellydn
 kofi
 buymeacoffee
 automerge
+docstrings
+sweepai
+pygithub
+sandboxed

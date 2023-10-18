@@ -48,7 +48,7 @@ writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
 // Ask the user if they want to use the default file types
 const useDefaultFileTypes = await consola.prompt(
-  "Use default file types (md, ts, tsx, json, lua)?",
+  "Use default file types (md, ts, tsx, json, yaml, lua)?",
   {
     type: "confirm",
     options: [
@@ -60,7 +60,7 @@ const useDefaultFileTypes = await consola.prompt(
 
 let fileTypes: string[];
 if (useDefaultFileTypes) {
-  fileTypes = ["md", "ts", "tsx", "json", "lua"];
+  fileTypes = ["md", "ts", "tsx", "json", "y*ml", "lua"];
 } else {
   // Ask the user for the file types they want to check
   fileTypes = (await consola.prompt("Select file types to check.", {
@@ -70,6 +70,7 @@ if (useDefaultFileTypes) {
       { value: "ts", label: "TypeScript" },
       { value: "tsx", label: "TypeScript React" },
       { value: "json", label: "JSON" },
+      { value: "y*ml", label: "YAML" },
       { value: "lua", label: "Lua" },
       { value: "py", label: "Python" },
       { value: "go", label: "Go" },
