@@ -1,14 +1,18 @@
 # cspell-tool
+
 [![Version](https://img.shields.io/npm/v/cspell-tool.svg)](https://npmjs.org/package/cspell-tool)
 [![Downloads/week](https://img.shields.io/npm/dw/cspell-tool.svg)](https://npmjs.org/package/cspell-tool)
 [![License](https://img.shields.io/npm/l/cspell-tool.svg)](https://github.com/jellydn/cspell-tool/blob/master/package.json)![Prerequisite](https://img.shields.io/badge/node-%3E%3D18.17.0-blue.svg)
 [![Twitter: jellydn](https://img.shields.io/twitter/follow/jellydn.svg?style=social)](https://twitter.com/jellydn)
+
 <p align="center">
   <em>Keep your project's spelling in check with cspell-tool.</em>
 </p>
 
 ## Table of Contents
+
 <!--toc:start-->
+
 - [Usage](#usage)
 - [Installation](#installation)
 - [Features](#features)

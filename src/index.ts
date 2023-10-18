@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import { exec } from "child_process";
 import consola from "consola";
 import { $ } from "zx";
@@ -20,9 +19,9 @@ try {
 
 // Ask the user for the project name
 const projectName = await consola.prompt("Enter project name", {
-  type: 'text',
-  placeholder: 'Your project name',
-  initial: 'cspell-tool',
+  type: "text",
+  placeholder: "Your project name",
+  initial: "cspell-tool",
 });
 
 // Create cspell.json configuration file
@@ -48,21 +47,23 @@ writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
 // Ask the user if they want to use the default file types
-const useDefaultFileTypes = await consola.prompt("Use default file types (md, ts, tsx, json, lua)?", {
-  type: "confirm",
-  options: [
-    { value: true, label: "Yes" },
-    { value: false, label: "No" },
-  ],
-});
-
+const useDefaultFileTypes = await consola.prompt(
+  "Use default file types (md, ts, tsx, json, lua)?",
+  {
+    type: "confirm",
+    options: [
+      { value: true, label: "Yes" },
+      { value: false, label: "No" },
+    ],
+  },
+);
 
 let fileTypes: string[];
 if (useDefaultFileTypes) {
   fileTypes = ["md", "ts", "tsx", "json", "lua"];
 } else {
   // Ask the user for the file types they want to check
-  fileTypes = await consola.prompt("Select file types to check.", {
+  fileTypes = (await consola.prompt("Select file types to check.", {
     type: "multiselect",
     options: [
       { value: "md", label: "Markdown" },
@@ -77,7 +78,7 @@ if (useDefaultFileTypes) {
       { value: "js", label: "JavaScript" },
       { value: "jsx", label: "JavaScript React" },
     ],
-  }) as unknown as string[];
+  })) as unknown as string[];
 }
 
 const cspellCmd = isInstalled ? "cspell" : "npx cspell";
@@ -101,5 +102,5 @@ consola.log(`Found ${unknownWords.length} unknown words.`);
 
 // Save unknown words in project-name.txt
 writeFile(`./${projectName}.txt`, unknownWords.join("\n"));
-consola.success("cSpell setup completed. Please review the unknown words.")
+consola.success("cSpell setup completed. Please review the unknown words.");
 process.exit(0);
