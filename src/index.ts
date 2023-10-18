@@ -13,18 +13,14 @@ try {
   consola.warn(
     "cSpell is not installed. Please install with your package manager.",
   );
-  // Print hint to console with cmd: npm install -g cspell@latest
   consola.info("Hint: npm install -g cspell@latest");
 }
-
-// Ask the user for the project name
 const projectName = await consola.prompt("Enter project name", {
   type: "text",
   placeholder: "Your project name",
   initial: "cspell-tool",
 });
 
-// Create cspell.json configuration file
 const cSpellContent = {
   $schema:
     "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
@@ -42,11 +38,8 @@ const cSpellContent = {
   ignorePaths: ["node_modules", "dist", "build", `/${projectName}.txt`],
 };
 
-// Create a project-name.txt file with the project name
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
-
-// Ask the user if they want to use the default file types
 const useDefaultFileTypes = await consola.prompt(
   "Use default file types (md, ts, tsx, json, lua)?",
   {
@@ -62,7 +55,21 @@ let fileTypes: string[];
 if (useDefaultFileTypes) {
   fileTypes = ["md", "ts", "tsx", "json", "lua"];
 } else {
-  // Ask the user for the file types they want to check
+  const useDefaultFileTypes = await consola.prompt(
+    "Use default file types (md, ts, tsx, json, lua)?",
+    {
+      type: "confirm",
+      options: [
+        { value: true, label: "Yes" },
+        { value: false, label: "No" },
+      ],
+    },
+  );
+  
+  let fileTypes: string[];
+  if (useDefaultFileTypes) {
+    fileTypes = ["md", "ts", "tsx", "json", "lua"];
+  } else {
   fileTypes = (await consola.prompt("Select file types to check.", {
     type: "multiselect",
     options: [
@@ -82,7 +89,6 @@ if (useDefaultFileTypes) {
 }
 
 const cspellCmd = isInstalled ? "cspell" : "npx cspell";
-// Run cspell on the selected file types to get unknown words
 const cmd = `${cspellCmd} --words-only --unique --no-progress --show-context ${fileTypes
   .map((fileType) => `"**/**/*.${fileType}"`)
   .join(" ")}`;
@@ -100,7 +106,6 @@ const unknownWords = await new Promise<string[]>((resolve) => {
 
 consola.log(`Found ${unknownWords.length} unknown words.`);
 
-// Save unknown words in project-name.txt
 writeFile(`./${projectName}.txt`, unknownWords.join("\n"));
 consola.success("cSpell setup completed. Please review the unknown words.");
 process.exit(0);
