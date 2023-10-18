@@ -30,7 +30,6 @@
     "clean": "rm -rf cli && echo 'Done.'",
     "dev": "bun run --watch ./src/index.ts",
     "format": "prettier --write .",
-    "postinstall": "npx simple-git-hooks",
     "lint": "eslint --ext .ts .",
     "np": "bun run build && bunx np@latest --no-tests",
     "typecheck": "tsc --noEmit"
