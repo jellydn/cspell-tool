@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node - This line is used to specify the interpreter for the execution of this script. In this case, it is the node interpreter.
 import { exec } from "child_process";
 import consola from "consola";
 import { $ } from "zx";
@@ -13,7 +13,7 @@ try {
   consola.warn(
     "cSpell is not installed. Please install with your package manager.",
   );
-  // Print hint to console with cmd: npm install -g cspell@latest
+}
   consola.info("Hint: npm install -g cspell@latest");
 }
 
@@ -42,7 +42,7 @@ const cSpellContent = {
   ignorePaths: ["node_modules", "dist", "build", `/${projectName}.txt`],
 };
 
-// Create a project-name.txt file with the project name
+// Create a project-name.txt file with the project name and a cspell.json configuration file with the project-specific settings.
 writeFile(`./${projectName}.txt`, "");
 writeFile("./cspell.json", JSON.stringify(cSpellContent, null, 2));
 
@@ -82,7 +82,7 @@ if (useDefaultFileTypes) {
 }
 
 const cspellCmd = isInstalled ? "cspell" : "npx cspell";
-// Run cspell on the selected file types to get unknown words
+// Ask the user for the file types they want to check and run cspell on the selected file types to get unknown words.
 const cmd = `${cspellCmd} --words-only --unique --no-progress --show-context ${fileTypes
   .map((fileType) => `"**/**/*.${fileType}"`)
   .join(" ")}`;
@@ -99,8 +99,9 @@ const unknownWords = await new Promise<string[]>((resolve) => {
 });
 
 consola.log(`Found ${unknownWords.length} unknown words.`);
+// Log the number of unknown words found by cspell.
 
-// Save unknown words in project-name.txt
+// Save the unknown words in the project-name.txt file and notify the user that the cSpell setup is completed.
 writeFile(`./${projectName}.txt`, unknownWords.join("\n"));
 consola.success("cSpell setup completed. Please review the unknown words.");
 process.exit(0);
