@@ -55,21 +55,6 @@ let fileTypes: string[];
 if (useDefaultFileTypes) {
   fileTypes = ["md", "ts", "tsx", "json", "lua"];
 } else {
-  const useDefaultFileTypes = await consola.prompt(
-    "Use default file types (md, ts, tsx, json, lua)?",
-    {
-      type: "confirm",
-      options: [
-        { value: true, label: "Yes" },
-        { value: false, label: "No" },
-      ],
-    },
-  );
-  
-  let fileTypes: string[];
-  if (useDefaultFileTypes) {
-    fileTypes = ["md", "ts", "tsx", "json", "lua"];
-  } else {
   fileTypes = (await consola.prompt("Select file types to check.", {
     type: "multiselect",
     options: [
