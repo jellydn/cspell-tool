@@ -9,6 +9,8 @@
   <em>Keep your project's spelling in check with cspell-tool.</em>
 </p>
 
+[![IT Man - Eliminate Typos in Your Code with Neovim [Vietnamese]](https://i.ytimg.com/vi/3IwMd77_P8E/hqdefault.jpg)](https://www.youtube.com/watch?v=3IwMd77_P8E)
+
 ## Table of Contents
 
 <!--toc:start-->
