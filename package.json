@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@skypack/package-check": "0.2.2",
-    "@trivago/prettier-plugin-sort-imports": "4.2.0",
+    "@trivago/prettier-plugin-sort-imports": "4.2.1",
     "@types/consola": "2.2.5",
     "@typescript-eslint/eslint-plugin": "6.8.0",
     "@typescript-eslint/parser": "6.8.0",
