@@ -127,6 +127,7 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 
 - [zx](https://github.com/google/zx) for making scripting easier.
 - [cspell](https://github.com/streetsidesoftware/cspell) for being the backbone of this tool.
+- [cspell.nvim](https://github.com/davidmh/cspell.nvim) a companion plugin for null-ls, adding support for CSpell diagnostics and code actions.
 
 ## Author
 
