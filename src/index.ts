@@ -5,9 +5,10 @@ import { helpCommand, initCommand, versionCommand, writeFile } from "./lib";
 
 if (process.argv.includes("--version")) {
   await versionCommand();
+  process.exit(0);
 }
 
-if (process.argv.includes("help")) {
+if (process.argv.includes("--help")) {
   helpCommand();
   process.exit(0);
 }

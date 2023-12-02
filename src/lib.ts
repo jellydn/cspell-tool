@@ -18,10 +18,10 @@ export function helpCommand() {
   consola.info(`
     Usage: cspell-tool [command] [options]
     Commands:
-      help        Print help message
       init        Create a cspell.json configuration file manually
     Options:
       --version   Print cspell-tool version
+      --help      Print usage information
   `);
 }
 
