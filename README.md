@@ -34,7 +34,7 @@ Run the following command in your project's root directory to check for spelling
 npx cspell-tool@latest
 ```
 
-[![Demo](https://i.gyazo.com/a8c681a83b65620f2277b2c9a16a46ef.gif)](https://gyazo.com/a8c681a83b65620f2277b2c9a16a46ef)
+[![Usage](https://i.gyazo.com/b045cd1e89712ee2268fe27d9786fdfe.gif)](https://gyazo.com/b045cd1e89712ee2268fe27d9786fdfe)
 
 ## Installation
 
