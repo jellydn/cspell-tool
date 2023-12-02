@@ -23,7 +23,8 @@
   },
   "files": [
     "src",
-    "dist/index.js"
+    "dist/index.js",
+    "package.json"
   ],
   "scripts": {
     "build": "bun build src/index.ts --outdir ./dist --target node --format esm --minify --external zx",
