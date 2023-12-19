@@ -4,7 +4,12 @@ import consola from "consola";
 import { writeFileSync } from "node:fs";
 import { $ } from "zx";
 
-const fileTypesOptions = JSON.parse(fs.readFileSync('./src/fileTypesConfig.json', 'utf8'));
+interface FileTypeOption {
+  value: string;
+  label: string;
+}
+
+const fileTypesOptions: FileTypeOption[] = JSON.parse(fs.readFileSync('./src/fileTypesConfig.json', 'utf8'));
 
 export function writeFile(
   filePath: string | URL,
@@ -102,7 +107,7 @@ export async function initCommand(isManual = false) {
 
   let fileTypes: string[];
   if (useDefaultFileTypes) {
-    fileTypes = fileTypesOptions.map(option => option.value);
+    fileTypes = fileTypesOptions.map((option: FileTypeOption) => option.value);
   } else {
     // Ask the user for the file types they want to check
     fileTypes = (await consola.prompt("Select file types to check.", {
