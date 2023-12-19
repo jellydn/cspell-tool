@@ -113,7 +113,7 @@ export async function initCommand(isManual = false) {
         { value: "lua", label: "Lua" },
         { value: "py", label: "Python" },
         { value: "go", label: "Go" },
-        { value: "mod", label: "Go Module" },
+        { value: "go.mod", label: "Go Module" },
         { value: "rs", label: "Rust" },
         { value: "java", label: "Java" },
         { value: "js", label: "JavaScript" },
