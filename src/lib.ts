@@ -3,7 +3,7 @@ import consola from "consola";
 import { writeFileSync } from "node:fs";
 import { $ } from "zx";
 
-const FILE_TYPES_OPTIONS = [
+const fileTypesOptions = [
   { value: "md", label: "Markdown" },
   { value: "ts", label: "TypeScript" },
   { value: "tsx", label: "TypeScript React" },
@@ -116,12 +116,12 @@ export async function initCommand(isManual = false) {
 
   let fileTypes: string[];
   if (useDefaultFileTypes) {
-    fileTypes = FILE_TYPES_OPTIONS.map(option => option.value);
+    fileTypes = fileTypesOptions.map(option => option.value);
   } else {
     // Ask the user for the file types they want to check
     fileTypes = (await consola.prompt("Select file types to check.", {
       type: "multiselect",
-      options: FILE_TYPES_OPTIONS,
+      options: fileTypesOptions,
     })) as unknown as string[];
   }
 
