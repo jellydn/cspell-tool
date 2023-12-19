@@ -1,24 +1,10 @@
+import fs from 'fs';
 import { exec } from "child_process";
 import consola from "consola";
 import { writeFileSync } from "node:fs";
 import { $ } from "zx";
 
-const fileTypesOptions = [
-  { value: "md", label: "Markdown" },
-  { value: "ts", label: "TypeScript" },
-  { value: "tsx", label: "TypeScript React" },
-  { value: "json", label: "JSON" },
-  { value: "y*ml", label: "YAML" },
-  { value: "lua", label: "Lua" },
-  { value: "py", label: "Python" },
-  { value: "go", label: "Go" },
-  { value: "mod", label: "Go Module" },
-  { value: "rs", label: "Rust" },
-  { value: "java", label: "Java" },
-  { value: "js", label: "JavaScript" },
-  { value: "jsx", label: "JavaScript React" },
-  { value: "css", label: "CSS" }
-];
+const fileTypesOptions = JSON.parse(fs.readFileSync('./src/fileTypesConfig.json', 'utf8'));
 
 export function writeFile(
   filePath: string | URL,
