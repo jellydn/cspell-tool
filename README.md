@@ -14,6 +14,7 @@
 ## Table of Contents
 
 <!--toc:start-->
+    - [Installation](#installation)
 
 - [Usage](#usage)
 - [Features](#features)
@@ -23,7 +24,38 @@
 - [Acknowledgements](#acknowledgements)
 - [Author](#author)
 - [Show Your Support](#show-your-support)
-<!--toc:end-->
+<!-- Installation -->
+
+## Installation
+
+Install as a development dependency in your project:
+
+```sh
+npm install --save-dev cspell-tool
+```
+
+Or globally:
+
+```sh
+npm install -g cspell-tool
+```
+``
+
+## Installation
+
+Install as a development dependency in your project:
+
+```sh
+npm install --save-dev cspell-tool
+```
+
+Or globally:
+
+```sh
+npm install -g cspell-tool
+```
+
+<!--toc:end--
 
 ## Usage
 
