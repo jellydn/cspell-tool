@@ -16,7 +16,6 @@
 <!--toc:start-->
 
 - [Usage](#usage)
-- [Installation](#installation)
 - [Features](#features)
   - [Usage with Neovim and null-ls](#usage-with-neovim-and-null-ls)
 - [Contributing](#contributing)
@@ -35,20 +34,6 @@ npx cspell-tool@latest
 ```
 
 [![Usage](https://i.gyazo.com/b045cd1e89712ee2268fe27d9786fdfe.gif)](https://gyazo.com/b045cd1e89712ee2268fe27d9786fdfe)
-
-## Installation
-
-Install as a development dependency in your project:
-
-```sh
-npm install --save-dev cspell-tool
-```
-
-Or globally:
-
-```sh
-npm install -g cspell-tool
-```
 
 ## Features
 
