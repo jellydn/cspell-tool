@@ -33,6 +33,10 @@ Run the following command in your project's root directory to check for spelling
 npx cspell-tool@latest
 ```
 
+## Installation
+
+Run the following command in your project's root directory to check for spelling issues:
+
 [![Usage](https://i.gyazo.com/b045cd1e89712ee2268fe27d9786fdfe.gif)](https://gyazo.com/b045cd1e89712ee2268fe27d9786fdfe)
 
 ## Features
