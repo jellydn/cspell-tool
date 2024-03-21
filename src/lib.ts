@@ -17,7 +17,8 @@ const fileTypesOptions = [
   { value: "java", label: "Java" },
   { value: "js", label: "JavaScript" },
   { value: "jsx", label: "JavaScript React" },
-  { value: "css", label: "CSS" }
+  { value: "css", label: "CSS" },
+  { value: "toml", label: "TOML" },
 ];
 
 export function writeFile(
@@ -116,7 +117,7 @@ export async function initCommand(isManual = false) {
 
   let fileTypes: string[];
   if (useDefaultFileTypes) {
-    fileTypes = fileTypesOptions.map(option => option.value);
+    fileTypes = fileTypesOptions.map((option) => option.value);
   } else {
     // Ask the user for the file types they want to check
     fileTypes = (await consola.prompt("Select file types to check.", {
