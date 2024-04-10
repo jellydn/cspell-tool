@@ -54,7 +54,7 @@
     "nano-staged": "0.8.0",
     "prettier": "3.2.5",
     "simple-git-hooks": "2.11.1",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   },
   "engines": {
     "node": ">=18.0.0"
