@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "consola": "3.2.3",
-    "zx": "7.2.3"
+    "zx": "8.0.2"
   },
   "devDependencies": {
     "@skypack/package-check": "0.2.2",
