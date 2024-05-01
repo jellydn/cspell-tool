@@ -25,3 +25,5 @@ sweepai
 pygithub
 sandboxed
 biomejs
+miniconda
+stefanzweifel
