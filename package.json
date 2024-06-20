@@ -44,7 +44,7 @@
     "@skypack/package-check": "0.2.2",
     "@types/consola": "2.2.5",
     "bun-types": "latest",
-    "typescript": "5.4.5"
+    "typescript": "5.5.2"
   },
   "engines": {
     "node": ">=18.0.0"
