@@ -1,6 +1,6 @@
 {
   "name": "cspell-tool",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "A command line tool for spell checking.",
   "keywords": [
     "cspell",
