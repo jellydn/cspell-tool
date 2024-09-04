@@ -19,6 +19,7 @@ const fileTypesOptions = [
   { value: 'jsx', label: 'JavaScript React' },
   { value: 'css', label: 'CSS' },
   { value: 'toml', label: 'TOML' },
+  { value: 'conf', label: 'CONF' },
 ]
 
 export function writeFile(
