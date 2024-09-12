@@ -40,7 +40,7 @@
     "zx": "8.1.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "1.9.0",
     "@skypack/package-check": "0.2.2",
     "@types/consola": "2.2.5",
     "bun-types": "latest",
