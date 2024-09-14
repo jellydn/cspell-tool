@@ -1,7 +1,7 @@
 import { writeFileSync } from 'node:fs'
 import consola from 'consola'
-import { writeFile, helpCommand, versionCommand } from './lib'
-import { describe, it, expect, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+import { helpCommand, versionCommand, writeFile } from './lib'
 
 vi.mock('node:fs')
 vi.mock('consola')
