@@ -30,13 +30,13 @@
     "build": "bun build src/index.ts --outdir ./dist --target node --format esm --minify --external zx",
     "clean": "rm -rf cli && echo 'Done.'",
     "dev": "bun run --watch ./src/index.ts",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage",
     "format": "biome format --write .",
     "lint": "biome lint --apply .",
     "np": "bun install && bun run build && bunx np@latest --no-tests",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest --watch",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
