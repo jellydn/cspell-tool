@@ -41,10 +41,10 @@
   },
   "dependencies": {
     "consola": "3.2.3",
-    "zx": "8.1.7"
+    "zx": "8.1.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.1",
+    "@biomejs/biome": "1.9.2",
     "@skypack/package-check": "0.2.2",
     "@types/consola": "2.2.5",
     "@vitest/coverage-v8": "^2.1.1",
