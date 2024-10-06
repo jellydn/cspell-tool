@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "consola": "3.2.3",
-    "zx": "8.1.8"
+    "zx": "8.1.9"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
