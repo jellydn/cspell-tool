@@ -40,7 +40,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "consola": "3.3.0",
+    "consola": "3.3.1",
     "zx": "8.2.4"
   },
   "devDependencies": {
