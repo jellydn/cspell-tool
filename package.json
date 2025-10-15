@@ -44,7 +44,7 @@
     "zx": "8.8.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.6",
     "@skypack/package-check": "0.2.2",
     "@types/consola": "2.2.8",
     "@vitest/coverage-v8": "3.2.4",
