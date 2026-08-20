@@ -51,7 +51,7 @@
     "@vitest/ui": "3.2.7",
     "bun-types": "latest",
     "typescript": "5.9.3",
-    "vite": "6.4.3",
+    "vite": "8.2.2",
     "vitest": "3.2.7"
   },
   "engines": {
